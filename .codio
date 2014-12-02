@@ -1,0 +1,12 @@
+{
+// Configure your Run and Preview buttons here.
+
+// Run button configuration
+  "commands": {
+        "Node version": "node --version"
+  },
+    // Preview button configuration
+  "preview": {
+        "Preview": "http://{{domain}}:3000/"
+  }
+}
