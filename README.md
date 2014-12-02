@@ -1,4 +1,4 @@
-##Accessing your CodeIgniter Prophect
+##Accessing your CodeIgniter Project
 To Access your site:
 
 1. Go to the Preview menu - the right most Codio menu.

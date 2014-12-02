@@ -3,10 +3,10 @@
 
 // Run button configuration
   "commands": {
-        "Node version": "node --version"
+        "PHP version": "php --version"
   },
     // Preview button configuration
   "preview": {
-        "Preview": "http://{{domain}}:3000/"
+        "Preview": "https://{{domain}}:9500/"
   }
 }
