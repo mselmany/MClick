@@ -16,7 +16,7 @@ https://vital-ego.box.codio.io:9500/
 We set this up using https so it can be previewed inside a Codio Tab.
 
 ##How the Pack was prepared
-This Starter Pack was built on the LAMP Codio Certified Stack.
+This Starter Pack was built on the `LAMP` Codio Certified Stack.
 
 ##Useful Links
 
