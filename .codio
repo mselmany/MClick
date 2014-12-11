@@ -7,6 +7,6 @@
   },
     // Preview button configuration
   "preview": {
-        "Preview": "https://{{domain}}:9500/"
+        "Preview": "http://{{domain}}:3000/index.php/MClick"
   }
 }

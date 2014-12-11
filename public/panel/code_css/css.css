@@ -1,0 +1,372 @@
+/* -- copyable codes start -- */
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+code,
+del,
+dfn,
+em,
+img,
+q,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+dialog,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
+    text-decoration: none;
+    list-style: none;
+}
+img {
+    width: 100%
+}
+html,
+body {
+    top: 0!important
+}
+.anim03 {
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+.anim04c {
+    -webkit-transition: all .4s cubic-bezier(.5, .35, .15, 1.4) !important;
+    transition: all .4s cubic-bezier(.5, .35, .15, 1.4) !important;
+}
+*,
+*::before,
+*::after {
+    -webkit-text-rendering: optimizeLegibility;
+    -moz-text-rendering: optimizeLegibility;
+    -ms-text-rendering: optimizeLegibility;
+    -o-text-rendering: optimizeLegibility;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -ms-font-smoothing: antialiased;
+    -o-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+}
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Nunito','Montserrat','Open Sans','Source Sans Pro', sans-serif !important;
+    background: #f9f9f9;
+    color: #444;
+}
+body {
+    overflow-x:hidden;
+}
+/*-----*/
+button{
+    border: 0;
+    outline: 0;
+    font-family: 'Nunito','Montserrat','Source Sans Pro','Open Sans', sans-serif !important;
+    text-align: center;
+    cursor: pointer;
+}
+button.with-shadow{
+    box-shadow: 0 2px 6px 0 #888;
+}
+button.with-shadow:hover{
+    box-shadow: 0 3px 10px 0 #888;
+}
+button.with-shadow:active{
+    box-shadow: 0 4px 14px 0 #888;
+}
+
+
+
+
+
+.top-field{
+    width: 100%;
+    min-width: 320px;
+    max-width: 1024px;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+
+
+
+
+
+
+.header{
+    width: 100%;
+    padding: 50px 0;
+    position: relative;
+    top: 0;left: 0;
+}
+.header p{
+    padding: 0 50px;
+    line-height: 30px;
+}
+.header-title{
+    line-height: 40px !important;
+}
+.header-title > a{
+    font-size: 34px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #444;
+}
+.header-title > a:after{
+    content: ".com";
+    color: #888;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+.header-title > a:hover:after{
+    opacity: 1;
+    visibility: visible;
+}
+.header-description{
+    font-size: 16px;
+    color: #888;
+}
+
+
+
+
+
+
+
+
+.panel-field > ul.list-title{
+    padding: 50px 50px 0 50px;
+}
+.panel-field > ul.list-block{
+    padding: 0 50px;
+}
+.panel-field > ul.input-block{
+    padding: 0 50px 50px 50px;
+}
+
+.list{
+    margin-left: 50px;
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 50px;
+}
+.list.title{
+    text-transform: uppercase;
+    color: #3498DB;
+    border-bottom: 1px solid #3498DB;
+}
+.list.block{
+    list-style: decimal;
+    color: #887431;
+    border-bottom: 1px solid #EFC94C;
+}
+.list > .counter{
+    display: inline-block;
+    width: 120px;
+    padding: 0 10px;
+}
+.list > .coupon-code{
+    display: inline-block;
+    padding: 0 10px;
+}
+.list-block > li:hover{
+    background: #f7f3e8;
+}
+
+/*
+<span class="remove-code">Sil</span>
+*/
+.list-block > li .remove-code{
+    display: inline-block;
+    margin-left: 30px;
+    padding: 0 10px;
+    cursor: pointer;
+    visibility: hidden;
+}
+.list-block > li:hover .remove-code{
+    visibility: visible;
+}
+.remove-code:hover{
+    color: #ff726b;
+}
+
+
+.input-block > .list{
+    border: 0;
+    border-bottom: 1px solid #8bb859;
+}
+.input-block input{
+    font-family: 'Nunito','Montserrat','Source Sans Pro','Open Sans', sans-serif !important;
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 50px;
+    height: 50px;
+    background: transparent;
+    color: #8bb859;
+    border: 0;
+    outline: 0;
+}
+.input-block input:hover{
+    background: #edf7e2;
+    //box-shadow: 0 0 0 1px #8bb859;
+}
+.input-block input:focus{
+    background: #daefc1;
+    //box-shadow: 0 0 0 1px #8bb859;
+}
+
+#counter-input{
+    display: inline-block;
+    width: 130px;
+    padding: 0 0 0 10px;
+}
+#coupon-code-input{
+    display: inline-block;
+    padding: 0 10px;
+}
+#submit-form{
+    display: inline-block;
+    padding: 0 10px;
+    color: #8bb859;
+    cursor: pointer;
+}
+#submit-form:hover{
+    background: #8bb859;
+    color: #eee;
+    box-shadow: 0 0 0 1px #8bb859;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.colours{
+    background: #ff726b;
+    background: #334D5C;
+    background: #2ecc71;
+    background: #45B29D;
+    background: #EFC94C;
+    background: #EB6841;
+    background: #3498DB;
+    background: #8E44AD;
+}
+
+
+
+
+
+.status {
+    width: 200px;
+    height: 50px;
+    padding: 10px;
+    border: 0;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 999999;
+    font: 100 13px/16px "Open Sans Condensed", sans-serif;
+    text-align: right;
+    background: #444;
+    color: #bbb;
+    opacity: 0.8;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    outline: 0;
+
+    //display: none
+}
+.status:hover,
+.status:focus {
+    width: 380px;
+    height: 130px;
+    opacity: 1;
+}
+.status:focus {
+    outline: 2px solid #000;
+}

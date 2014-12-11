@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+            <?php $path = base_url();  ?>
     <head>
         <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600,900|Playfair+Display:400,900|Montserrat:400,700|Raleway:300,900|Lato:300,900|Nunito:300,700|Open+Sans:300italic,400italic,400,600,700,800&subset=latin,latin-ext" rel="stylesheet" type="text/css">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -8,10 +8,10 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="description" content="" />
         <meta charset=utf-8 />
-        <script src="assets/code_javascript/jquery.min.js"></script>
+        <script src="<?php echo $path ?>public/MClick/code_javascript/jquery.min.js"></script>
         
-        <link rel="stylesheet" href="assets/code_css/css.css">
-        <script src="assets/code_javascript/main.js"></script>
+        <link rel="stylesheet" href="<?php echo $path ?>public/MClick/code_css/css.css">
+        <script src="<?php echo $path ?>public/MClick/code_javascript/main.js"></script>
         <title>1MClick</title>
     </head>
 
