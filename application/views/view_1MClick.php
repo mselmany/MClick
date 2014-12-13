@@ -11,7 +11,10 @@
         <script src="<?php echo $path ?>public/MClick/code_javascript/jquery.min.js"></script>
         
         <link rel="stylesheet" href="<?php echo $path ?>public/MClick/code_css/css.css">
-        <script src="<?php echo $path ?>public/MClick/code_javascript/main.js"></script>
+
+        <script src="<?php echo $path ?>public/MClick/code_javascript/main.js">
+            foo.url = '<?php echo base_url(); ?>';  
+        </script>
         <title>1MClick</title>
     </head>
 
@@ -251,7 +254,7 @@
                 </div>
             </div>
         </div>
-
+       
     </body>
 
 </html>
