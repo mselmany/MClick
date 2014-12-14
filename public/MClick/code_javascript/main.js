@@ -165,6 +165,18 @@ $(document).ready(function() {
     
     
     
+    window.onbeforeunload = function (e) {
+        e = e || window.event;
+        if( foo.kazandiMi === true ){
+        // For IE and Firefox prior to version 4
+        if (e) {
+            e.returnValue = "Çıkarsanız kazandığınız kupon bilgileri kaybolacak.Çıkmak istediğinizden emin misiniz?";
+        }
+        // For Safari
+        return "Çıkarsanız kazandığınız kupon bilgileri kaybolacak.Çıkmak istediğinizden emin misiniz?";
+        }
+    };
+    
     
     
     

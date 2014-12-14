@@ -74,6 +74,7 @@ $(document).ready(function () {
             $(this).parent(".list.block").remove();
         } else return false;
     });
+    
 
 
 });
