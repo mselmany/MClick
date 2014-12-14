@@ -6,8 +6,8 @@ class MClick extends CI_Controller {
     private $SAYAC = 0;
     private $ID = 0 ;
     private $TARIH;
-    private $SURE = 36;
-    private $yasakMi = FALSE;     
+    public  $SURE = 30 ;
+    private $yasakMi;     
     private $odul = array();
     private $userSAYAC = 0 ;
     
@@ -32,10 +32,15 @@ class MClick extends CI_Controller {
         
         $this->load->model('model_1MClick');
         
+        $row = $this->model_1MClick->sayacGet();
+        $this->SAYAC = $row->sayac; 
+        $this->SURE = $row->dakika*60;
+        
         $this->yasaklimi();
          
-        $this->SAYAC = $this->model_1MClick->sayacGet();
-
+        
+        //echo $this->SURE;
+        
        }
     
     private function yasaklimi(){
@@ -100,15 +105,15 @@ class MClick extends CI_Controller {
                         echo json_encode(array('kazandiMi'=>$kazandiMi,
                                                'kupon'=>$row->kuponKodu,
                                                'odulAdi'=>$row->odulAdi,
-                                               'yasakMi'=>$this->yasakMi,
+                                               'yasakMi'=>true,
                                                'sayac'=>$this->SAYAC));
                     }else{
                         echo json_encode(array('kazandiMi'=>$kazandiMi,
-                                               'yasakMi'=>$this->yasakMi));
+                                               'yasakMi'=>true));
                     }                   
                }
            }else{
-               echo json_encode(array('yasakMi'=>$this->yasakMi));
+               echo json_encode(array('yasakMi'=>false));
            }
             
                 
@@ -117,25 +122,99 @@ class MClick extends CI_Controller {
         //esitse odulkuponu cek
     }
     
+    
+    
     public function panel(){
-        $this->load->view('view_panel');
-    }
-    
-    public function dene(){
-
         
-        
-       $row = $this->model_1MClick->userSet($this->IP,$this->SAYAC);
-       echo json_encode($row);
-        
-//         $row = $this->model_1MClick->sayacUpdate($this->SAYAC+1);
-//        echo json_encode($row);
+        $rows['data'] = $this->model_1MClick->odulList();
+        $rows['sure'] = $this->model_1MClick->sayacGet();
+        if(!$rows['data']){
             
-        //echo date('d.m.Y H:i:s',time());
+            $rows['data'] = array ( 0 => array ( 'kuponSayac' => 'veriYok' ,
+                                                'kuponKodu' => 'veriYok',
+                                                'odulAdi' => 'veriYok',
+                                                'sayac' => 'veriYok',
+                                                'sure' => 'veriYok') );
+            $this->load->view('view_panel',$rows);
+            
+        }else{ 
+           $this->load->view('view_panel',$rows);
+        }
+        
+        
     }
     
+    public function add(){  
+        
+            $this->load->library('form_validation');
+			
+			$this->form_validation->set_rules('kuponSayac','KUPONSAYAC','required|trim|is_unique[kupon.kuponSayac]');
+            $this->form_validation->set_rules('kuponKodu','KUPONKODU','required|trim|xss_clean');
+            $this->form_validation->set_message('is_unique','Bu sayac zaten girilmis !'); 
+        
+        if ($this->form_validation->run()) {
+            $sonuc = $this->model_1MClick->odulSet($this->input->post('kuponSayac'),
+                                          $this->input->post('kuponKodu'),
+                                          $this->input->post('odulAdi'));
+            if($sonuc){
+                redirect('MClick/panel');
+            }else{
+                redirect('MClick/panel');
+            }
+            
+        }else{
+            $this->panel();
+            //redirect('MClick/panel');
+        }
+       
+    }
     
+    public function del($kuponSayac){       
+        
+       $row = $this->model_1MClick->odulDel($kuponSayac);
+         if($row){
+             redirect('MClick/panel');
+         }else{
+             redirect('MClick/panel');
+         }
+      //     echo json_encode(array('inserted' => $row));
+
+    }
     
+    public function sureUpdate(){  
+        
+            $this->load->library('form_validation');
+			
+			$this->form_validation->set_rules('sure','SAYAC','required|trim|numeric');
+            //$this->form_validation->set_rules('kuponKodu','KUPONKODU','required|trim|xss_clean');
+            $this->form_validation->set_message('numeric','Sadece rakam girebilirsin !'); 
+        
+        if ($this->form_validation->run()) {
+            $sonuc = $this->model_1MClick->sureUpdate($this->input->post('sure'));
+            if($sonuc){
+                redirect('MClick/panel');
+            }else{
+                redirect('MClick/panel');
+            }
+            
+        }else{
+            $this->panel();
+            //redirect('MClick/panel');
+        }
+       
+    }
+    
+    public function sifirla(){
+        
+        $sonuc = $this->model_1MClick->sayacReset();
+            if($sonuc){
+                redirect('MClick/panel');
+            }else{
+                redirect('MClick/panel');
+            }
+    }
+    
+       
 }
 
 /* End of file welcome.php */

@@ -19,7 +19,6 @@
     </head>
 
     <body class="mode-1">
-        <button class="status"></button>
 
         <div class="top-field">
 
@@ -219,10 +218,10 @@
                             <p>1 Milyon tık dolmadan hemen sizde deneyin</p>
                         </li>
                         <li class="win-description">
-                            <p>Tebrikler! <span class="winner-count">12345</span>. kişi olarak "<a href="#" class="coupon-owner">250TL TEKNOSA</a>" indirim kuponu kazandınız.Aşağıdaki kodu kopyalayın veya not alın, kullanmak istediğiniz zaman için saklayın ve <a href='javascript:void(0);' onclick='$("#down-content").removeClass().addClass("tab-2");$("body").addClass("button-more-is-active");'>kullanım koşullarını</a> okuyun.</p>
+                            <p>Tebrikler! <span class="winner-count">-</span>. kişi olarak "<a href="#" class="coupon-owner">-</a>" indirim kuponu kazandınız.Aşağıdaki kodu kopyalayın veya not alın, kullanmak istediğiniz zaman için saklayın ve <a href='javascript:void(0);' onclick='$("#down-content").removeClass().addClass("tab-2");$("body").addClass("button-more-is-active");'>kullanım koşullarını</a> okuyun.</p>
                             <ul id="coupon-codes" title="Kodu kopyalayın">
-                                <li>Kupon Adı : <span id="coupon-name">250TL-TEKNOSA</span></li>
-                                <li>Kupon Kodu : <span id="coupon-code">ABCD-EFGH-1234-5678</span></li>
+                                <li>Kupon Adı : <span id="coupon-name">-</span></li>
+                                <li>Kupon Kodu : <span id="coupon-code">-</span></li>
                             </ul>
                         </li>
                         <li class="lose-description">

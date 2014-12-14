@@ -104,22 +104,6 @@ body {
     overflow-x:hidden;
 }
 /*-----*/
-button{
-    border: 0;
-    outline: 0;
-    font-family: 'Nunito','Montserrat','Source Sans Pro','Open Sans', sans-serif !important;
-    text-align: center;
-    cursor: pointer;
-}
-button.with-shadow{
-    box-shadow: 0 2px 6px 0 #888;
-}
-button.with-shadow:hover{
-    box-shadow: 0 3px 10px 0 #888;
-}
-button.with-shadow:active{
-    box-shadow: 0 4px 14px 0 #888;
-}
 
 
 
@@ -176,13 +160,27 @@ button.with-shadow:active{
     font-size: 16px;
     color: #888;
 }
+   
 
 
-
-
-
-
-
+.block-field.counter-reset-field{
+    padding: 10px 50px 10px 50px;
+}
+.block-field.counter-field{
+    padding: 10px 50px 10px 50px;
+    margin-left: 50px;
+}
+.counter-field #show-counter{
+    font-size: 50px;
+    font-weight: 900;
+    letter-spacing: 5px;
+}
+.block-field.time-field{
+    padding: 10px 50px 10px 50px;
+}
+.block-field.codes-field{
+    padding: 10px 50px 50px 50px;
+}
 
 .panel-field > ul.list-title{
     padding: 50px 50px 0 50px;
@@ -206,13 +204,25 @@ button.with-shadow:active{
     border-bottom: 1px solid #3498DB;
 }
 .list.block{
+    height: 50px;
     list-style: decimal;
     color: #887431;
     border-bottom: 1px solid #EFC94C;
+    overflow: hidden;
 }
-.list > .counter{
+.list > .counter,
+.list > #time,
+#reset-counter{
     display: inline-block;
     width: 120px;
+    padding: 0 10px;
+}
+.list > #time:after{
+    content: " DK";
+}
+.list > .coupon-name{
+    display: inline-block;
+    width: 200px;
     padding: 0 10px;
 }
 .list > .coupon-code{
@@ -222,7 +232,12 @@ button.with-shadow:active{
 .list-block > li:hover{
     background: #f7f3e8;
 }
-
+.list.block span{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+ 
 /*
 <span class="remove-code">Sil</span>
 */
@@ -236,8 +251,11 @@ button.with-shadow:active{
 .list-block > li:hover .remove-code{
     visibility: visible;
 }
-.remove-code:hover{
-    color: #ff726b;
+.remove-code a{
+    color: #887431;
+}
+.remove-code:hover a{
+    color: #ff726b !important;
 }
 
 
@@ -264,109 +282,41 @@ button.with-shadow:active{
     background: #daefc1;
     //box-shadow: 0 0 0 1px #8bb859;
 }
-
-#counter-input{
+   
+#counter-input,
+#time-input{
     display: inline-block;
     width: 130px;
     padding: 0 0 0 10px;
+}
+#coupon-name-input{
+    display: inline-block; 
+    width: 200px;
+    padding: 0 10px;
 }
 #coupon-code-input{
     display: inline-block;
     padding: 0 10px;
 }
-#submit-form{
+#submit-form,
+#submit-time,
+#submit-reset-counter{
     display: inline-block;
     padding: 0 10px;
     color: #8bb859;
     cursor: pointer;
 }
-#submit-form:hover{
+#submit-form:hover,
+#submit-time:hover,
+#submit-reset-counter:hover{
     background: #8bb859;
     color: #eee;
     box-shadow: 0 0 0 1px #8bb859;
 }
 
+    
+   
+    
+ 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.colours{
-    background: #ff726b;
-    background: #334D5C;
-    background: #2ecc71;
-    background: #45B29D;
-    background: #EFC94C;
-    background: #EB6841;
-    background: #3498DB;
-    background: #8E44AD;
-}
-
-
-
-
-
-.status {
-    width: 200px;
-    height: 50px;
-    padding: 10px;
-    border: 0;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    z-index: 999999;
-    font: 100 13px/16px "Open Sans Condensed", sans-serif;
-    text-align: right;
-    background: #444;
-    color: #bbb;
-    opacity: 0.8;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    outline: 0;
-
-    //display: none
-}
-.status:hover,
-.status:focus {
-    width: 380px;
-    height: 130px;
-    opacity: 1;
-}
-.status:focus {
-    outline: 2px solid #000;
-}
+  

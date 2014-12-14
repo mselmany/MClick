@@ -87,6 +87,24 @@ class Model_1mclick extends CI_Model{
             }
         
     } 
+     //tiklamada kullanilicak
+    public function sureUpdate($sure=0){
+        
+        //$sayac = $sayac +1;
+        
+        $this->db->set('dakika', $sure);  
+        $this->db->update('sayac'); 
+
+        if ($this->db->affected_rows() > 0) {
+            	
+              return true;
+            
+            } else {
+            	 
+              return false;
+            }
+        
+    } 
     //sayac sifirla
     public function sayacReset(){
         
@@ -97,11 +115,11 @@ class Model_1mclick extends CI_Model{
 
         if ($this->db->affected_rows() > 0) {
             	
-              return 'degisti';
+              return 1;
             
             } else {
             	 
-              return 'degismedi';
+              return 0;
             }
         
     }     
@@ -114,7 +132,7 @@ class Model_1mclick extends CI_Model{
             	
               $row = $query->row(); 
             
-            	return $row->sayac;
+            	return $row;
             
             } else {
             	 
@@ -123,8 +141,24 @@ class Model_1mclick extends CI_Model{
         
     }
    
+    public function odulList(){
+        
+        $query = $this->db->query("SELECT * FROM kupon");       
+        
+    	$res = $query->result_array();
+ 
+    	if($this->db->affected_rows() > 0){
+    		 //print_r($res);
+    		return $res;
+    			
+    	}else{
+    		 
+    		return FALSE;
+    			
+    	}
+    }   
     
-     public function kazandiMi($sayac){
+    public function kazandiMi($sayac){
         
         $query = $this->db->get_where('kupon', array('kuponSayac' => $sayac));
         
@@ -154,10 +188,11 @@ class Model_1mclick extends CI_Model{
             }
     }      
     //panelden odul ekleme
-    public function odulSet($sayac=0,$kuponKodu=''){
+    public function odulSet($sayac=0,$kuponKodu='',$odulAdi=''){
         
         $this->db->set('kuponKodu', $kuponKodu); 
         $this->db->set('kuponSayac', $sayac);
+        $this->db->set('odulAdi', $odulAdi);
         $this->db->insert('kupon'); 
                 
         if ($this->db->affected_rows() > 0) {
@@ -170,10 +205,9 @@ class Model_1mclick extends CI_Model{
             }
     }
     //panelden odul kaldirma
-    public function odulDel($kuponKodu=''){
-        
-        
-            $this->db->delete('kupon', array('kuponKodu' => $kuponKodu));
+    public function odulDel($kuponSayac){            
+             
+            $this->db->delete('kupon', array('kuponSayac' => $kuponSayac));
             
             if($this->db->affected_rows() > 0){
                 return 1;
